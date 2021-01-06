@@ -3,7 +3,7 @@ ActiveRecord::Base.logger = nil
 class Cli
 
     def prompt
-        TTY::Prompt.new
+        TTY::Prompt.new(active_color: :on_red)
     end
 
     def clear
@@ -47,7 +47,7 @@ class Cli
 
     def menu_prompt
         clear
-        prompt.select("What'll it be?", beverage_names)
+        selected_beverage = prompt.select("What'll it be?", beverage_names)
         clear
         puts "Enjoy your: #{selected_beverage}."
     end
