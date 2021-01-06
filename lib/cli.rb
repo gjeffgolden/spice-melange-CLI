@@ -19,7 +19,7 @@ class Cli
     end
 
     def mixer_names
-        Alcohol.all.pluck("name")
+        Mixer.all.pluck("name")
     end
 
     def get_name
@@ -47,8 +47,7 @@ class Cli
 
     def menu_prompt
         clear
-        selected_beverage = prompt.select("What'll it be?", beverage_names)
-        user_favorites << selected_beverage
+        prompt.select("What'll it be?", beverage_names)
         clear
         puts "Enjoy your: #{selected_beverage}."
     end
@@ -60,10 +59,11 @@ class Cli
 
     def order_special
         clear
-        puts "You've been eaten by the Arrkarian worm!"
+        puts "You've been eaten by a Giant Arrakian Sandworm!"
     end
 
     def start
+        user_favorites = []
         clear
         get_name
         welcome_prompt
