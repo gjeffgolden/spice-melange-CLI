@@ -4,7 +4,6 @@ cli = Cli.new
 cli.welcome
 
 
-# binding.pry
 
 
 
