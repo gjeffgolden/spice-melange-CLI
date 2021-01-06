@@ -32,8 +32,7 @@ class Cli
     end
 
     def welcome_prompt
-        clear
-        initial_selection = prompt.select("Have a seat, #{@name}. What would you like to do?", welcome_prompt_choices)
+        initial_selection = prompt.select("Welcome, #{@name}. What would you like to do?", welcome_prompt_choices)
         if initial_selection == welcome_prompt_choices[0]
             menu_prompt
         end
@@ -51,10 +50,15 @@ class Cli
         clear
         puts "Enjoy your: #{selected_beverage}."
     end
-
+    
     def choose_alcohol_prompt
         clear
-        prompt.multi_select("Choose your liquors:", alcohol_names)
+        liquor = prompt.select("Choose your liquor:", alcohol_names)
+        mixer = prompt.select("Choose your mixer:", mixer_names)
+        add_liquor = Alcohol.all.find_by name: liquor
+        add_mixer = Mixer.all.find_by name: mixer
+        drink = Beverage.create name: "#{@name}'s Drink", alcohol_id: add_liquor.id, mixer_id: add_mixer.id
+        puts "Here you go! Enjoy your #{drink.name}: #{drink.alcohol.name} mixed with #{drink.mixer.name}."
     end
 
     def order_special
@@ -63,10 +67,13 @@ class Cli
     end
 
     def start
-        user_favorites = []
         clear
         get_name
+        clear
         welcome_prompt
+    end
+
+    def exit_app
         puts "Thanks for visiting Spice Melange!"
     end
 
