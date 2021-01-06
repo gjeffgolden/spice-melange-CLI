@@ -1,7 +1,7 @@
 require_relative 'config/environment'
 
 cli = Cli.new
-cli.welcome
+cli.start
 
 
 
