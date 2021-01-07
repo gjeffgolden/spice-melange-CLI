@@ -1,6 +1,7 @@
 Alcohol.destroy_all
 Mixer.destroy_all
 Beverage.destroy_all
+Tab.destroy_all
 
 vodka = Alcohol.create name: "Vodka", color: "light", strength: 2
 whiskey = Alcohol.create name: "Whiskey", color: "dark", strength: 2
