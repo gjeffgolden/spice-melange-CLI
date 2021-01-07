@@ -15,3 +15,5 @@ gem "tty-prompt"
 gem 'tty-color', '~> 0.6.0'
 gem 'tty-font'
 gem 'pastel'
+gem 'tty-progressbar'
+gem 'tty-spinner'
