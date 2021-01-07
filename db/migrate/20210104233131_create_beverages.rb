@@ -4,6 +4,7 @@ class CreateBeverages < ActiveRecord::Migration[6.1]
       t.string :name
       t.references :alcohol
       t.references :mixer
+      t.references :tab
     end
   end
 end
