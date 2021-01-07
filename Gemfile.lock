@@ -40,10 +40,16 @@ GEM
       activerecord (>= 4.1)
       sinatra (>= 1.0)
     sqlite3 (1.4.2)
+    strings-ansi (0.1.0)
     tilt (2.0.10)
     tty-color (0.6.0)
     tty-cursor (0.7.1)
     tty-font (0.5.0)
+    tty-progressbar (0.17.0)
+      strings-ansi (~> 0.1.0)
+      tty-cursor (~> 0.7)
+      tty-screen (~> 0.7)
+      unicode-display_width (~> 1.6)
     tty-prompt (0.23.0)
       pastel (~> 0.8)
       tty-reader (~> 0.8)
@@ -52,8 +58,11 @@ GEM
       tty-screen (~> 0.8)
       wisper (~> 2.0)
     tty-screen (0.8.1)
+    tty-spinner (0.9.3)
+      tty-cursor (~> 0.7)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (1.7.0)
     wisper (2.0.1)
     zeitwerk (2.4.2)
 
@@ -70,7 +79,9 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   tty-color (~> 0.6.0)
   tty-font
+  tty-progressbar
   tty-prompt
+  tty-spinner
 
 BUNDLED WITH
    2.1.4
