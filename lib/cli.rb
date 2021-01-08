@@ -46,10 +46,15 @@ class Cli
     def print_tab
         names = @user_tab.beverages.map {|bev| bev.name}
         reset
+        puts @pastel.bright_green("Your total is #{total_tab} solaris.")
         puts @pastel.cyan("Here's what you've had so far:")
         puts names
         pause
         welcome_prompt
+    end
+
+    def total_tab
+        @user_tab.beverages.reduce(0) {|acc, beverage| acc += beverage.credits}
     end
 
     def welcome_prompt_choices
@@ -78,11 +83,13 @@ class Cli
 
     def menu_prompt
         reset
-        selected_beverage = prompt.select(@pastel.cyan("Here's our menu:"), original_beverage_names)
+        selection = prompt.select(@pastel.cyan("Here's our menu:"), original_beverage_names)
         reset
-        @user_tab.beverages << Beverage.all.find {|bev| bev.name = selected_beverage}
+        selected_beverage = Beverage.all.find {|bev| bev.name = selection}
+        @user_tab.beverages << selected_beverage
         progress_bar
-        puts @pastel.cyan("Enjoy your: #{selected_beverage}.")
+        puts @pastel.bright_green("That'll be #{selected_beverage.credits} solaris.")
+        puts @pastel.bright_green("Enjoy your: #{selection}.")
         pause
         welcome_prompt
     end
@@ -94,11 +101,13 @@ class Cli
         mixer = prompt.select(@pastel.cyan("Choose your mixer:"), mixer_names)
         add_liquor = Alcohol.all.find_by name: liquor
         add_mixer = Mixer.all.find_by name: mixer
-        drink = Beverage.new name: "#{liquor} #{mixer}", alcohol_id: add_liquor.id, mixer_id: add_mixer.id
+        drink = Beverage.new name: "#{liquor} #{mixer}", credits: 10, alcohol_id: add_liquor.id, mixer_id: add_mixer.id
         @user_tab.beverages << drink
         reset
         progress_bar
-        puts @pastel.cyan("Survival is the ability to swim in strange water. Enjoy your #{drink.name}.")
+        puts @pastel.bright_green("That'll be #{drink.credits} solaris.")
+        puts @pastel.bright_green("Enjoy your #{drink.name}.")
+        #INSERT DUNE QUOTE HERE
         pause
         welcome_prompt
     end

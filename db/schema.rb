@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_01_07_201841) do
 
   create_table "beverages", force: :cascade do |t|
     t.string "name"
+    t.integer "credits"
     t.integer "alcohol_id"
     t.integer "mixer_id"
     t.integer "tab_id"
