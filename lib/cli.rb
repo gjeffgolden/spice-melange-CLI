@@ -18,7 +18,7 @@ class Cli
         system("clear")
         @pastel = Pastel.new
         font = TTY::Font.new(:starwars)
-        puts @pastel.bright_magenta(font.write("Spice Melange"))
+        puts @pastel.bright_magenta(font.write("Spice    Melange"))
     end
 
     def pause
@@ -94,11 +94,11 @@ class Cli
         mixer = prompt.select(@pastel.cyan("Choose your mixer:"), mixer_names)
         add_liquor = Alcohol.all.find_by name: liquor
         add_mixer = Mixer.all.find_by name: mixer
-        drink = Beverage.new name: "#{@name}'s Drink", alcohol_id: add_liquor.id, mixer_id: add_mixer.id
+        drink = Beverage.new name: "#{liquor} #{mixer}", alcohol_id: add_liquor.id, mixer_id: add_mixer.id
         @user_tab.beverages << drink
         reset
         progress_bar
-        puts @pastel.cyan("Survival is the ability to swim in strange water. Enjoy your #{drink.name}: #{drink.alcohol.name} mixed with #{drink.mixer.name}.")
+        puts @pastel.cyan("Survival is the ability to swim in strange water. Enjoy your #{drink.name}.")
         pause
         welcome_prompt
     end
@@ -115,7 +115,17 @@ class Cli
             welcome_prompt
         else
             reset
-            puts @pastel.cyan("You've been eaten by a Giant Arrakian Sandworm. Goodbye.")
+            puts @pastel.bright_red("WRONG! LAST CHANCE!")
+            puts @pastel.cyan("Speak the name of Dune's author to save yourself.")
+            second_try = gets
+            if second_try.include?("Herbert")
+                reset
+                puts @pastel.bright_green("YOU ARE WORTHY!")
+                pause
+                welcome_prompt
+            else
+                puts @pastel.cyan("You've been eaten by a Giant Arrakian Sandworm. Goodbye.")
+            end
         end
     end
 
