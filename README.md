@@ -3,7 +3,7 @@
 
 ## Description
 
-SPICE MELANGE is a CLI app that creates a virtual Dune-themed cantina. While in this otherworldly watering hole, users can order a drink, create their own drink, answer Dune trivia, dodge giant sandworms and view their tab (including total cost in solari credits). At the very least, you'll leave with some fancy new Dune quotes to impress your friends.
+SPICE MELANGE is a CLI app that creates a virtual Dune-themed cantina. While in this otherworldly watering hole, users can order a drink, create their own drink, answer Dune trivia, dodge giant sandworms, and view their tab (including total cost in solari credits). At the very least, you'll leave with some fancy new Dune quotes to impress your friends.
 
 ## Features
 
