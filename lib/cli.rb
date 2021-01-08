@@ -58,7 +58,7 @@ class Cli
     end
 
     def welcome_prompt_choices
-        ["View Menu", "Create Your Own Drink", "Special of the Day", "My Tab", "Get on a spaceship byeeeeeeeeeeee"]
+        ["View Menu", "Create Your Own Drink", "Special of the Day", "My Tab", "Board Starship 'Sarah III' (Leave)"]
     end
 
     def welcome_prompt
@@ -90,6 +90,7 @@ class Cli
         progress_bar
         puts @pastel.bright_green("That'll be #{selected_beverage.credits} solaris.")
         puts @pastel.bright_green("Enjoy your: #{selection}.")
+        puts @pastel.cyan('"The universe is full of doors."')
         pause
         welcome_prompt
     end
@@ -107,7 +108,7 @@ class Cli
         progress_bar
         puts @pastel.bright_green("That'll be #{drink.credits} solaris.")
         puts @pastel.bright_green("Enjoy your #{drink.name}.")
-        #INSERT DUNE QUOTE HERE
+        puts @pastel.cyan('"The sleeper has awakened."')
         pause
         welcome_prompt
     end
@@ -119,7 +120,8 @@ class Cli
         answer = gets
         if answer.include?("Herbert")
             reset
-            puts @pastel.cyan("YOU ARE WORTHY!")
+            puts @pastel.bright_green("YOU ARE WORTHY!")
+            puts @pastel.cyan('"I must not fear. Fear is the mind-killer. Fear is the little death that brings total obliteration."')
             pause
             welcome_prompt
         else
@@ -130,10 +132,12 @@ class Cli
             if second_try.include?("Herbert")
                 reset
                 puts @pastel.bright_green("YOU ARE WORTHY!")
+                puts @pastel.cyan('"I must not fear. Fear is the mind-killer. Fear is the little death that brings total obliteration."')
                 pause
                 welcome_prompt
             else
                 puts @pastel.cyan("You've been eaten by a Giant Arrakian Sandworm. Goodbye.")
+                puts @pastel.cyan('"They tried and failed. They tried and died."')
             end
         end
     end
@@ -148,7 +152,8 @@ class Cli
 
     def exit_app
         reset
-        puts @pastel.cyan("Thanks for visiting Spice Melange. Fear is the mind-killer. Fear is the little-death that brings total obliteration.")
+        puts @pastel.bright_green("Thanks for visiting Spice Melange.")
+        puts @pastel.cyan('“Deep in the human unconscious is a pervasive need for a logical universe that makes sense, but the real universe is always one step beyond logic."')
     end
 
 end

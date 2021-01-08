@@ -1,19 +1,15 @@
-Flatiron School Mod 1 Pair Project - Louis Leffler and Jeff Golden
+# Flatiron School Mod 1 Pair Project - Louis Leffler and Jeff Golden
 
-DUNE quotes:
+## Objective
 
-“I must not fear. Fear is the mind-killer. Fear is the little death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.”
+1. Use TDD to code two classes that interact with each other. 
 
-“The proximity of a desirable thing tempts one to overindulgence. On that path lies danger.”
+## Description
 
-“You see, my climate demands a special attitude towards water. You are aware of water at all times. You waste nothing that contains moisture.”
+We're going to build a `BankAccount` class where one instance of the class can transfer money to another instance through a `Transfer` class. The `Transfer` class acts as a space for a transaction between two instances of the bank account class. Think of it this way: you can't just transfer money to another account without the bank running checks first. `Transfer` instances will do all of this, as well as check the validity of the accounts before the transaction occurs. `Transfer` instances should be able to reject a transfer if the accounts aren't valid or if the sender doesn't have the money.
 
-“The universe is full of doors.”
+Transfers start out in a "pending" status. They can be executed and go to a "complete" state. They can also go to a "rejected" status. A completed transfer can also be reversed and go into a "reversed" status.
 
-“Deep in the human unconscious is a pervasive need for a logical universe that makes sense, But the real universe is always one step beyond logic.”
+## Instructions
 
-“The mystery of life isn’t a problem to solve, but a reality to experience.”
-
-“Intelligence takes chance with limited data in an arena where mistakes are not only possible but also necessary.”
-
-“A process cannot be understood by stopping it. Understanding must move with the flow of the process, must join it and flow with it.”
+Pass the tests. They are deliberately vague; your design is up to you! Read the test output and test files very carefully to get through this one. 
